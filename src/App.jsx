@@ -18,15 +18,11 @@ function App() {
   return (
     <div className='app'>
       {showPop && (
-        <div className='pop-containter'>
-          <div className='popup'>
-            <h1>WELCOME TO TIC TAC TOE</h1>
-            <button className='start' onClick={handleClosePopup}>Start</button>
-          </div>
+        <div className='container'>
+            <h1>welcome to Tic-Tac-Toe</h1>
+            <button className='start' onClick={handleClosePopup}>start</button>
         </div>
       )}
-
-
     </div>
   );
 }
