@@ -1,30 +1,23 @@
-import { useState, useEffect } from 'react';
-import "./App.css";
-
+import { useState } from "react";
+import Popup from "./Popup";
+import Lobby from "./Lobby";
 
 function App() {
-  const [showPop, setShowPop] = useState(false);
+  const [showPopup, setShowPopup] = useState(true);
 
-  useEffect(() => {
-    //display popup on componenet mounting
-    setShowPop(true);
-  }, []);
-
-  const handleClosePopup = () => {
-    //close the popup when start button is clicked
-    setShowPop(false);
+  const handleStartClick = () => {
+    setShowPopup(false);
   }
 
   return (
-    <div className='app'>
-      {showPop && (
-        <div className='container'>
-            <h1>welcome to Tic-Tac-Toe</h1>
-            <button className='start' onClick={handleClosePopup}>start</button>
-        </div>
+    <div>
+      {showPopup ? (
+        <Popup onStartClick={handleStartClick} />
+      ) : (
+        <Lobby />
       )}
     </div>
-  );
+  )
 }
 
 export default App;
