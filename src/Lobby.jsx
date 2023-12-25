@@ -6,7 +6,7 @@ function Lobby() {
       <div className="lobbyContainer">
         <div className="enterContainer">
             <h1>enter a game</h1>
-            <form>
+            <form className="enterForm">
                 <input className="joinInput" />
                 <button className="join">join</button>
             </form>
@@ -15,7 +15,9 @@ function Lobby() {
         <div className="joinContainer">
             <h1>host a game</h1>
             <h2 className="randomCode"></h2>
-            <span>R</span>
+            <span className="material-symbols-outlined refresh">
+autorenew
+</span>
         </div>
       </div>
     </>
