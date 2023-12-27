@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Popup from "./Popup";
-import Lobby from "./Lobby";
+// import Lobby from "./Lobby";
+import Board from "./Board";
 
 function App() {
   const [showPopup, setShowPopup] = useState(true);
@@ -14,7 +15,7 @@ function App() {
       {showPopup ? (
         <Popup onStartClick={handleStartClick} />
       ) : (
-        <Lobby />
+        <Board />
       )}
     </div>
   )
