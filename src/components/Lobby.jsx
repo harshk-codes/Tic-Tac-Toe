@@ -1,4 +1,4 @@
-import "./Lobby.css";
+import '../assets/styles/lobby.css'
 
 function Lobby() {
   return (
