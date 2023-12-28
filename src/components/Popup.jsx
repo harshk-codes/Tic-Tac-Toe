@@ -1,4 +1,4 @@
-import './Popup.css'
+import '../assets/styles/popup.css'
 
 // eslint-disable-next-line react/prop-types
 function Popup({onStartClick}) {

@@ -1,4 +1,4 @@
-import './Board.css'
+import '../assets/styles/board.css'
 
 function Board() {
 
