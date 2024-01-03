@@ -16,6 +16,15 @@
     width: 100px;
     height: 100px;
     background-color: #222831;
+    cursor: pointer;
+    color: #fff;
+    font-size: 4rem;
+    font-family: monospace;
+}
+
+.box:hover {
+    background-color: #393f47;
+    transition: all 0.2s;
 }
 
 .b1, .b2, .b4, .b5 {
@@ -29,4 +38,17 @@
 
 .b7, .b8 {
     border-right: 6px solid #eee;
+}
+
+.b1 {
+    border-radius: 5px 0 0 0;
+}
+.b3 {
+    border-radius: 0 5px 0 0;
+}
+.b7 {
+    border-radius: 0 0 0 5px;
+}
+.b9 {
+    border-radius: 5px 0 5px 0;
 }
