@@ -1,6 +1,16 @@
 import { useState } from 'react';
 import '../assets/styles/board.css'
 
+
+const Result = ({winner}) => (
+    <>
+    <div className='result-container'>
+        <h1>{winner}</h1>
+    </div>
+    <button className='play-again'>play again</button>
+    </>
+);
+
 //filling initial board with null values
 var initialBoard = Array(9).fill(null);
 
@@ -22,11 +32,14 @@ function Board() {
     };
 
 
-    const renderSquare = (index) => {
-        <button className='sq' onClick={() => {handleClick(index)}}>
-            {board[index]}
-        </button>
-    };
+    // eslint-disable-next-line react/prop-types
+    const RenderSquare = ({value, onSqClick}) => {
+        return (
+            <button className='square' onClick={onSqClick}>
+                {value}
+            </button>
+        );
+    }
 
     //rendering winner component
   
@@ -36,21 +49,21 @@ function Board() {
         <>
             <div className='gameBoard'>
                 <div className='row'>
-                    <div className='box b1'>{renderSquare(0)}</div>
-                    <div className='box b2'>{renderSquare(1)}</div>
-                    <div className='box b3'>{renderSquare(2)}</div>
+                    <div className='box b1'><RenderSquare value={board[0]} onSqClick={() => handleClick(0)} /></div>
+                    <div className='box b2'><RenderSquare value={board[1]} onSqClick={() => handleClick(1)} /></div>
+                    <div className='box b3'><RenderSquare value={board[2]} onSqClick={() => handleClick(2)} /></div>
                 </div>
 
                 <div className='row'>
-                    <div className='box b4'>{renderSquare(3)}</div>
-                    <div className='box b5'>{renderSquare(4)}</div>
-                    <div className='box b6'>{renderSquare(5)}</div>
+                    <div className='box b4'><RenderSquare value={board[3]} onSqClick={() => handleClick(3)} /></div>
+                    <div className='box b5'><RenderSquare value={board[4]} onSqClick={() => handleClick(4)} /></div>
+                    <div className='box b6'><RenderSquare value={board[5]} onSqClick={() => handleClick(5)} /></div>
                 </div>
 
                 <div className='row'>
-                    <div className='box b7'>{renderSquare(6)}</div>
-                    <div className='box b8'>{renderSquare(7)}</div>
-                    <div className='box b9'>{renderSquare(8)}</div>
+                    <div className='box b7'><RenderSquare value={board[6]} onSqClick={() => handleClick(6)} /></div>
+                    <div className='box b8'><RenderSquare value={board[7]} onSqClick={() => handleClick(7)} /></div>
+                    <div className='box b9'><RenderSquare value={board[8]} onSqClick={() => handleClick(8)} /></div>
                 </div>
             </div>
         </>
