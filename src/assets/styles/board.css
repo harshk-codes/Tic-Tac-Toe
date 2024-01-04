@@ -17,12 +17,25 @@
     height: 100px;
     background-color: #222831;
     cursor: pointer;
-    color: #fff;
-    font-size: 4rem;
+    color: #d5b019;
+    font-size: 3rem;
     font-family: monospace;
+    text-align: center;
 }
 
-.box:hover {
+.square {
+    border: none;
+    width: 96px;
+    height: 96px;
+    background-color: #222831;
+    cursor: pointer;
+    color: #d5b019;
+    font-size: 3rem;
+    font-family: monospace;
+    text-align: center;
+}
+
+.square:hover {
     background-color: #393f47;
     transition: all 0.2s;
 }
@@ -51,4 +64,16 @@
 }
 .b9 {
     border-radius: 5px 0 5px 0;
+}
+
+.result-container {
+    width: 100%;
+    height: 200px;
+    background-color: #ffffff61;
+    text-align: center;
+}
+
+.result-container > h1 {
+    font-family: 'Joti One', serif;
+    font-size: 3rem;
 }
