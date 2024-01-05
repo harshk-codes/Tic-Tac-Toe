@@ -1,11 +1,18 @@
 import { useState } from 'react';
 import '../assets/styles/board.css'
 
+//evaluation component
+const Evaluate = () => (
+    <>
+        <span className='line'></span>
+    </>
+);
 
-const Result = ({winner}) => (
+//result component
+const Result = (props) => (
     <>
     <div className='result-container'>
-        <h1>{winner}</h1>
+        <h1>{props.winner}</h1>
     </div>
     <button className='play-again'>play again</button>
     </>
@@ -31,12 +38,10 @@ function Board() {
         setIsXnext(!isXNext);
     };
 
-
-    // eslint-disable-next-line react/prop-types
-    const RenderSquare = ({value, onSqClick}) => {
+    const RenderSquare = (props) => {
         return (
-            <button className='square' onClick={onSqClick}>
-                {value}
+            <button className='square' onClick={props.onSqClick}>
+                {props.value}
             </button>
         );
     }
