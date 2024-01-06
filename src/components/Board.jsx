@@ -8,6 +8,33 @@ const Evaluate = () => (
     </>
 );
 
+//creating css object for making cut lines
+const lineCss = [
+    {
+        "width": "600px",
+        "height": "10px",
+        "background-color": "red",
+        
+    },
+    {
+        "width": "10px",
+        "height": "600px",
+        "background-color": "red", 
+    },
+    {
+        "width": "848.528px",
+        "height": "0px",
+        "transform": "rotate(45deg)",
+        "background-color": "red",
+    },
+    {
+        "width": "848.528px",
+        "height": "0px",
+        "transform": "rotate(-45deg)",
+        "background-color": "red",
+    }
+]
+
 //result component
 const Result = (props) => (
     <>
