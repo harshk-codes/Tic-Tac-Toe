@@ -1,0 +1,38 @@
+.wait-container {
+    display: flex;
+    justify-content: center;
+}
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.title-container h1 {
+    color: #EEE;
+    font-family: 'Joti One', serif;
+    font-size: 2rem;
+}
+
+.title-container span {
+    background-color: #FFD369;
+    width: 8px;
+    height: 8px;
+    border-radius: 100%;
+}
+
+/*animation code*/
+
+
+/*joke code*/
+.joke-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.joke-container h1, h3 {
+    font-family: 'Joti One', serif;
+    text-align: center;
+    color: #EEE;
+}
