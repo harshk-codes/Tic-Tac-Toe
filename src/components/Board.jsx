@@ -80,23 +80,17 @@ function Board() {
     return (
         <>
             <div className='gameBoard'>
-                <div className='row'>
                     <div className='box b1'><RenderSquare value={board[0]} onSqClick={() => handleClick(0)} /></div>
                     <div className='box b2'><RenderSquare value={board[1]} onSqClick={() => handleClick(1)} /></div>
                     <div className='box b3'><RenderSquare value={board[2]} onSqClick={() => handleClick(2)} /></div>
-                </div>
 
-                <div className='row'>
                     <div className='box b4'><RenderSquare value={board[3]} onSqClick={() => handleClick(3)} /></div>
                     <div className='box b5'><RenderSquare value={board[4]} onSqClick={() => handleClick(4)} /></div>
                     <div className='box b6'><RenderSquare value={board[5]} onSqClick={() => handleClick(5)} /></div>
-                </div>
-
-                <div className='row'>
+                    
                     <div className='box b7'><RenderSquare value={board[6]} onSqClick={() => handleClick(6)} /></div>
                     <div className='box b8'><RenderSquare value={board[7]} onSqClick={() => handleClick(7)} /></div>
                     <div className='box b9'><RenderSquare value={board[8]} onSqClick={() => handleClick(8)} /></div>
-                </div>
             </div>
         </>
     );
