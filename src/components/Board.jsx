@@ -74,11 +74,18 @@ function Board() {
     }
 
     //rendering winner component
-  
+    // if (calculateWinner(board))
 
 
     return (
         <>
+        <div className='board'>
+            <div className='user-container'>
+                <h1 className='user1'>You<span></span></h1>
+                <h1 className='user2'>User<span></span></h1>
+            </div>
+
+            <div className='gameboard-container'>
             <div className='gameBoard'>
                     <div className='box b1'><RenderSquare value={board[0]} onSqClick={() => handleClick(0)} /></div>
                     <div className='box b2'><RenderSquare value={board[1]} onSqClick={() => handleClick(1)} /></div>
@@ -91,6 +98,8 @@ function Board() {
                     <div className='box b7'><RenderSquare value={board[6]} onSqClick={() => handleClick(6)} /></div>
                     <div className='box b8'><RenderSquare value={board[7]} onSqClick={() => handleClick(7)} /></div>
                     <div className='box b9'><RenderSquare value={board[8]} onSqClick={() => handleClick(8)} /></div>
+            </div>
+            </div>
             </div>
         </>
     );
@@ -110,7 +119,7 @@ const calculateWinner = (squares) => {
     ];
 
     for (let i = 0; i <winLines.length; i++) {
-        const [ x, y, z] = winLines[i];
+        const [x, y, z] = winLines[i];
 
         if (squares[x] && squares[x] === squares[y] && squares[x] === squares[z]) {
             return squares[x];
