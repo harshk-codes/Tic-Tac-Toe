@@ -1,7 +1,7 @@
 //creating css object for making cut lines
 export const lineCss = [
     {
-        width: "600px",
+        width: "300px",
         height: "10px",
         backgroundColor: "red",
         display: "block",
@@ -9,7 +9,7 @@ export const lineCss = [
     },
     {
         width: "10px",
-        height: "600px",
+        height: "300px",
         backgroundColor: "red", 
         display: "block",
     },

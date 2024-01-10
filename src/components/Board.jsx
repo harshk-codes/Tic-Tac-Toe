@@ -34,7 +34,7 @@ function Board() {
     //rendering winner component
     if (calculateWinner(board).line == 0)
     {
-        <Line style={lineCss[0]} />
+        <Line style={} />
     }
 
 
