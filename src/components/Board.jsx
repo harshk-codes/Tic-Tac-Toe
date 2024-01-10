@@ -1,49 +1,7 @@
 import { useState } from 'react';
 import '../assets/styles/board.css'
-
-//evaluation component
-const Evaluate = () => (
-    <>
-        <span className='line'></span>
-    </>
-);
-
-//creating css object for making cut lines
-const lineCss = [
-    {
-        "width": "600px",
-        "height": "10px",
-        "background-color": "red",
-        
-    },
-    {
-        "width": "10px",
-        "height": "600px",
-        "background-color": "red", 
-    },
-    {
-        "width": "848.528px",
-        "height": "0px",
-        "transform": "rotate(45deg)",
-        "background-color": "red",
-    },
-    {
-        "width": "848.528px",
-        "height": "0px",
-        "transform": "rotate(-45deg)",
-        "background-color": "red",
-    }
-]
-
-//result component
-const Result = (props) => (
-    <>
-    <div className='result-container'>
-        <h1>{props.winner}</h1>
-    </div>
-    <button className='play-again'>play again</button>
-    </>
-);
+import Line from './Line';
+import { lineCss } from '../utils/lineCss';
 
 //filling initial board with null values
 var initialBoard = Array(9).fill(null);
@@ -54,7 +12,7 @@ function Board() {
     const [isXNext, setIsXnext] = useState(true);
 
     const handleClick = (index) => {
-        if (board[index] || calculateWinner(board)) {
+        if (board[index] || calculateWinner(board).winner) {
             return;
         }
 
@@ -74,7 +32,10 @@ function Board() {
     }
 
     //rendering winner component
-    // if (calculateWinner(board))
+    if (calculateWinner(board).line == 0)
+    {
+        <Line style={lineCss[0]} />
+    }
 
 
     return (
@@ -122,11 +83,18 @@ const calculateWinner = (squares) => {
         const [x, y, z] = winLines[i];
 
         if (squares[x] && squares[x] === squares[y] && squares[x] === squares[z]) {
-            return squares[x];
+            return {winner: squares[x], line: winLines[i]};
         }
     }
 
-    return null;
+    return {winner: null, line: null};
 };
 
 export default Board;
+
+//left jobs:
+//-- winner component rendering 
+//-- lines css rendering 1s before the result/winner component gets rendered
+//-- writing RTC code and setup user connection
+//-- finalizing the sequential component rendering 
+//-- responsiveness and refactoring the code
