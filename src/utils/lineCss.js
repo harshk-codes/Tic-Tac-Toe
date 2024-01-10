@@ -1,4 +1,3 @@
-//creating css object for making cut lines
 export const lineCss = [
     {
         width: "300px",
@@ -7,12 +6,42 @@ export const lineCss = [
         display: "block",
         
     },
+
+    {
+        width: "300px",
+        height: "10px",
+        backgroundColor: "red",
+        display: "block",
+    },
+
+    {
+        width: "300px",
+        height: "10px",
+        backgroundColor: "red",
+        display: "block",
+    },
+
     {
         width: "10px",
         height: "300px",
         backgroundColor: "red", 
         display: "block",
     },
+
+    {
+        width: "10px",
+        height: "300px",
+        backgroundColor: "red", 
+        display: "block",
+    },
+    
+    {
+        width: "10px",
+        height: "300px",
+        backgroundColor: "red", 
+        display: "block",
+    },
+
     {
         width: "848.528px",
         height: "0px",
@@ -20,6 +49,7 @@ export const lineCss = [
         backgroundColor: "red",
         display: "block",
     },
+
     {
         width: "848.528px",
         height: "0px",
@@ -27,4 +57,4 @@ export const lineCss = [
         backgroundColor: "red",
         display: "block",
     }
-]
+];
