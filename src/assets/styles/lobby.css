@@ -1,83 +1,33 @@
 .lobbyContainer {
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-evenly;
-  padding: 0 400px;
-  margin-top: 200px;
-}
-
-.enterForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.joinInput {
-  width: 200px;
-  height: 50px;
-  border-radius: 10px;
-  background-color: #393e4669;
-  border: none;
-  padding: 5px;
-}
-
-.join {
-  width: 100px;
-  height: 40px;
-  font-family: "Joti One", serif;
-  color: #ffd369;
-  font-size: 1.5rem;
-  background-color: #393e46;
-  border: none;
-  border-radius: 5px;
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.join:hover {
-  background-color: #393e46a2;
-  transition: all 0.2s;
-}
-
-.joinContainer {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.refresh {
-  color: #ffd369;
-  font-size: 2rem;
-  cursor: pointer;
-}
-
-.userContainer {
-  display: flex;
-  align-items: center;
   justify-content: center;
+  margin: 10px;
+  padding: 10px;
 }
 
-.userInput {
-  border-radius: 10px;
-  background-color: #393e46;
-  border: none;
-  width: 200px;
-  height: 45px;
-  padding: 5px;
+.enter-container, .host-container {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.enter-container h3, .host-container h3 {
+  font-family: 'Joti One', serif;
+  font-size: 2.5rem;
   color: #eee;
 }
 
-.userEdit {
-    background-color: #222831;
-    border: none;
-    color: #ffd369;
+.host-container > h2 {
+  color: #FFD369;
 }
 
-.editSquare {
-    font-size: 2rem;
-    cursor: pointer;
-    margin: 10px;
+.host-container >  {
+  color: #EEE;
 }
-/* .editSquare:hover {
-    font-size: 2.2rem;
-} */
+
+.partition {
+  display: block;
+  width: 2px;
+  background-color: #39404c;
+  margin: 0 20px;
+}
