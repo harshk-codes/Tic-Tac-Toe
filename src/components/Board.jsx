@@ -2,8 +2,8 @@
 import { useState } from 'react';
 import '../assets/styles/board.css'
 import Line from './Line';
-import Result from './Result';
-// import { lineCss } from '../utils/lineCss';
+// import Result from './Result';
+import { lineCss } from '../utils/lineCss';
 
 //filling initial board with null values
 var initialBoard = Array(9).fill(null);
@@ -34,35 +34,8 @@ function Board() {
     }
 
     //rendering winner component
-    if (calculateWinner(board).line == 0)
-    {
-        <Line />
-    }
-    if (calculateWinner(board).line == 1)
-    {
-        <Line />
-    }
-    if (calculateWinner(board).line == 2)
-    {
-        <Line />
-    }
-    if (calculateWinner(board).line == 3)
-    {
-        <Line />
-    }
-    if (calculateWinner(board).line == 4)
-    {
-        <Line />
-    }
-    if (calculateWinner(board).line == 5)
-    {
-        <Line />
-    }
-    else
-    {
-        <Result winner="lose" />
-    }
-
+    const winnerToken = calculateWinner(board).line;
+    
 
     return (
         <>
