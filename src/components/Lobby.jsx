@@ -15,11 +15,12 @@ const EnterCard = () => {
 };
 
 const HostCard = () => {
-//generating and changing game code
-  let [code, setCode] =useState(9661);
+  //generating and changing game code
+  let inCode = Math.floor(Math.random() * 10000);
+  let [code, setCode] = useState(inCode);
   const refCode = () => {
     setCode(Math.floor(Math.random() * 10000));
-  }
+  };
   return (
     <>
       <div className="host-container">
@@ -30,7 +31,7 @@ const HostCard = () => {
             refCode();
           }}
         >
-          <span className="material-symbols-outlined">sync</span>
+          <span className="material-symbols-outlined sync">sync</span>
         </button>
       </div>
     </>
@@ -39,15 +40,23 @@ const HostCard = () => {
 const Lobby = () => {
   return (
     <>
-      <div className="lobbyContainer">
+    <div className="lobby">
+      <div className="username">
+        <input />
+        <button>
+          <span className="material-symbols-outlined editSquare">
+            edit_square
+          </span>
+        </button>
+      </div>
+      <div className="code-container">
         <EnterCard />
         <span className="partition"></span>
         <HostCard />
+      </div>
       </div>
     </>
   );
 };
 
 export default Lobby;
-
-//        <span className="material-symbols-outlined editSquare">edit_square</span>
