@@ -29,6 +29,7 @@ const HostCard = () => {
         <button
           onClick={() => {
             refCode();
+            
           }}
         >
           <span className="material-symbols-outlined sync">sync</span>
