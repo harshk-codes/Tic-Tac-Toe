@@ -1,5 +1,5 @@
 .lobby {
-  margin: 50px;
+  margin: 150px;
 }
 
 .code-container {
@@ -34,13 +34,13 @@
   display: block;
   width: 2px;
   background-color: #39404c;
-  margin: 0 20px;
+  margin: 0 40px;
 }
 
 .username {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin: 30px;
 }
 
 .username > input, .enter-container > input {
@@ -52,6 +52,7 @@
   font-family: 'Joti One', serif;
   font-size: 1.2rem;
   text-align: center;
+  margin-left: 40px;
 }
 
 .username > input:focus {
@@ -73,6 +74,9 @@
   margin: 20px;
   width: 150px;
   font-size: 1.8rem;
+}
+.username > input:focus, .enter-container > input:focus {
+  outline: none;
 }
 
 .enter-container > button {
