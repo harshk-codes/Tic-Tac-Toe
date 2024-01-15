@@ -1,15 +1,18 @@
 /* eslint-disable react/no-unescaped-entities */
+import dotenv from 'dotenv';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../assets/styles/waiting.css";
+dotenv.config();
 
-
+const apiKey = process.env.REACT_APP_API_KEY;
+console.log(apiKey);
 
 const Waiting = () => {
     const [data, setData] = useState();
 
     useEffect(() => {
-        const rapidApiKey = '75370bcb0dmshdf024307fb0108dp1b4ac4jsn26b27f924cb3';
+        const rapidApiKey = apiKey;
         const apiEndpoint = 'https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes';
 
         axios({
@@ -22,7 +25,6 @@ const Waiting = () => {
             },
         })
         .then((res) => {
-            console.log(res.data[0].joke);
             setData(res.data);
         })
         .catch((err) => {
