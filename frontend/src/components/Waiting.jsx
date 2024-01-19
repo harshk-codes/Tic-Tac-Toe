@@ -16,8 +16,7 @@ const Waiting = () => {
             url: apiEndpoint,
             headers: {
                 'X-RapidAPI-Key': rapidApiKey,
-                'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com'
-
+                'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com',
             },
         })
         .then((res) => {
@@ -45,6 +44,6 @@ const Waiting = () => {
     </div>
   </>
 );
-}
+};
 
 export default Waiting;
