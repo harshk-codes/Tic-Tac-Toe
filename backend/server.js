@@ -1,8 +1,12 @@
 const express = require('express');
-const API_KEY = process.env.API_KEY
+export const API_KEY = process.env.API_KEY;
 const port = process.env.PORT || 3000;
 const app = express();
 
+
+// app.get('/', (req, res) => {
+//     res.sendFile(__dirname + "/index.html");
+// });
 
 app.listen(port, () => {
     console.log(`The server is running on port ${port}`);

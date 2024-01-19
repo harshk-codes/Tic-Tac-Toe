@@ -1,13 +1,14 @@
 /* eslint-disable react/no-unescaped-entities */
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { API_KEY } from '../../../backend/server';
 import "../assets/styles/waiting.css";
 
 const Waiting = () => {
     const [data, setData] = useState();
 
     useEffect(() => {
-        const rapidApiKey = apiKey;
+        const rapidApiKey = API_KEY;
         const apiEndpoint = 'https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes';
 
         axios({
