@@ -1,12 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
-import dotenv from 'dotenv';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import "../assets/styles/waiting.css";
-dotenv.config();
-
-const apiKey = process.env.REACT_APP_API_KEY;
-console.log(apiKey);
 
 const Waiting = () => {
     const [data, setData] = useState();
