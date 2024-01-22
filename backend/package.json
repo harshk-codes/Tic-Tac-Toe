@@ -44,7 +44,7 @@
     "delayed-stream": "^1.0.0",
     "doctrine": "^3.0.0",
     "dom-helpers": "^5.2.1",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.3.2",
     "electron-to-chromium": "^1.4.557",
     "engine.io-client": "^6.5.2",
     "engine.io-parser": "^5.2.1",

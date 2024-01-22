@@ -1,12 +1,30 @@
 const express = require('express');
-export const API_KEY = process.env.API_KEY;
+const dotenv = require('dotenv');
+const axios = require('axios');
 const port = process.env.PORT || 3000;
 const app = express();
+dotenv.config();
+// const apiKey = process.env.API_KEY; 
 
+const options = {
+    method: 'GET',
+    url: 'https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes',
+    headers: {
+        'X-RapidAPI-Key': '75370bcb0dmshdf024307fb0108dp1b4ac4jsn26b27f924cb3',
+        'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com'
+    }
+};
 
-// app.get('/', (req, res) => {
-//     res.sendFile(__dirname + "/index.html");
-// });
+async function fetchJoke() {
+    try {
+        const response = await axios.request(options);
+        console.log(response.data[0].joke);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+fetchJoke();
 
 app.listen(port, () => {
     console.log(`The server is running on port ${port}`);
