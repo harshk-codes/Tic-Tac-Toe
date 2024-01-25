@@ -10,7 +10,7 @@ const options = {
     method: 'GET',
     url: 'https://jokes-by-api-ninjas.p.rapidapi.com/v1/jokes',
     headers: {
-        'X-RapidAPI-Key': '75370bcb0dmshdf024307fb0108dp1b4ac4jsn26b27f924cb3',
+        'X-RapidAPI-Key': '',
         'X-RapidAPI-Host': 'jokes-by-api-ninjas.p.rapidapi.com'
     }
 };

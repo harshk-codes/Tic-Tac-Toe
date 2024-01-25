@@ -3,16 +3,23 @@ import { useState } from "react";
 import "../assets/styles/lobby.css";
 
 const EnterCard = () => {
+
+  const [joinCode, setJoinCode] = useState('');
+
   return (
     <>
       <div className="enter-container">
         <h3>enter a game</h3>
-        <input />
-        <button>join</button>
+        <input type="text" inputMode="numeric" pattern="\d*" value={joinCode} onChange={(e) => {
+          setJoinCode(e.target.value);
+        }} />
+        <button onClick={() => {
+          console.log(joinCode);
+        }}>join</button>
       </div>
     </>
   );
-};
+};  
 
 const HostCard = () => {
   //generating and changing game code
@@ -21,6 +28,7 @@ const HostCard = () => {
   const refCode = () => {
     setCode(Math.floor(Math.random() * 10000));
   };
+
   return (
     <>
       <div className="host-container">
@@ -38,15 +46,25 @@ const HostCard = () => {
     </>
   );
 };
+
+
 const Lobby = () => {
+
+  const [username, setUsername] = useState("");
+
   return (
     <>
     <div className="lobby">
       <div className="username">
-        <input />
-        <button>
+        <input type="text" value={username} onChange={(e) => {
+          setUsername(e.target.value);
+        }} />
+        <button onClick={() => {
+          console.log(username);
+          document.querySelector(".editSquare").style.color = "#4bb543";
+        }}>
           <span className="material-symbols-outlined editSquare">
-            edit_square
+            check_circle
           </span>
         </button>
       </div>
