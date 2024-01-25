@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
 import '../assets/styles/board.css'
-import Line from './Line';
+// import Line from './Line';
 // import Result from './Result';
-import { lineCss } from '../utils/lineCss';
+// import { lineCss } from '../utils/lineCss';
 
 //filling initial board with null values
 var initialBoard = Array(9).fill(null);
@@ -34,7 +34,7 @@ function Board() {
     }
 
     //rendering winner component
-    const winnerToken = calculateWinner(board).line;
+    // const winnerToken = calculateWinner(board).line;
     
 
     return (
