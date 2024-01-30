@@ -1,4 +1,4 @@
-.lobby {
+/* .lobby {
   margin: 150px;
 }
 
@@ -104,4 +104,86 @@
 .sync:hover {
   transform: rotate(360deg);
   transition: all 0.5s;
+} */
+
+.lobby-container {
+  margin-top: 20vh;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 10px;
+   padding: 10px;
+}
+
+.heading-container > img {
+  width: 120px;
+  height: 120px;
+  margin: 10px;
+}
+
+.search-container > input, .search-container > button {
+  margin: 5px;
+  font-family: 'Joti One', serif;
+}
+
+.search-container > label {
+  color: #FFD369;
+  background-color: #222831;
+  font-family: sans-serif;
+  width: 140px;
+  text-align: center;
+  align-self: flex-start;
+  position: relative;
+  left: 40px;
+  top: 15px;
+  font-weight: 200;
+
+}
+.search-container > input {
+  border: 2px solid #FFD369;
+  background-color: #222831;
+  padding: 4px;
+  color: #FFD369;
+  border-radius: 5px;
+  width: 280px;
+  height: 45px;
+  font-size: 1rem;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+}
+
+.search-container > input:focus {
+  outline: none;
+  
+}
+
+.search-container > button {
+  width: 200px;
+  height: 40px;
+  border: none;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #39404c;
+  color: #FFD369;
+  cursor: pointer;
+  font-family: 'Joti One', serif;
+  font-size: 1.1rem;
+}
+
+.search-container > button:hover {
+  background-color: #3c434ea7;
+  transition: all 0.3s;
 }

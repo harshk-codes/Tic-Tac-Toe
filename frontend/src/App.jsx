@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Popup from "./components/Popup";
-import Lobby from "./components/Lobby";
-// import Board from "./components/Board";
+// import Lobby from "./components/Lobby";
+import Board from "./components/Board";
 // import Waiting from "./components/Waiting"
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
       {showPopup ? (
         <Popup onStartClick={handleStartClick} />
       ) : (
-        <Lobby />
+        <Board />
       )}
     </div>
   )
