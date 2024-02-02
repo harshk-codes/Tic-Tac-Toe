@@ -1,10 +1,11 @@
 import { useState } from "react";
+// import { createBrowserRouter } from "react-router-dom";
 import Popup from "./components/Popup";
 // import Lobby from "./components/Lobby";
 import Board from "./components/Board";
 // import Waiting from "./components/Waiting"
 
-function App() {
+const App = () => {
   const [showPopup, setShowPopup] = useState(true);
 
   const handleStartClick = () => {
@@ -19,7 +20,7 @@ function App() {
         <Board />
       )}
     </div>
-  )
-}
+  );
+};
 
 export default App;
