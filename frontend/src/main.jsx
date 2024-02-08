@@ -6,6 +6,7 @@ import './assets/styles/main.css'
 import Lobby from './components/Lobby.jsx';
 import Error from './components/Error.jsx';
 import Board from './components/Board.jsx';
+import Waiting from './components/Waiting.jsx';
 
 const appRouter = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const appRouter = createBrowserRouter([
   {
     path: "/game",
     element: <Board />,
+  },
+  {
+    path: "/waiting",
+    element: <Waiting />,
   },
 ]);
 
