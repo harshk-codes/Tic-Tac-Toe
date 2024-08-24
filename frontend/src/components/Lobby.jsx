@@ -1,107 +1,145 @@
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { newSocket } from "../main";
+import Swal from "sweetalert2";
 import "../assets/styles/lobby.css";
+// import Waiting from "./Waiting";
 
-// const EnterCard = () => {
+const EnterCard = ({ setJoinCode, joinCode, username }) => {
+  // const [joinCode, setJoinCode] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  return (
+    <>
+      <div className="enter-container">
+        <h3>enter a game</h3>
+        <input
+          type="text"
+          inputMode="numeric"
+          pattern="\d*"
+          value={joinCode}
+          placeholder={isFocused ? "" : "code"}
+          onFocus={() => {
+            setIsFocused(true);
+          }}
+          onBlur={() => {
+            setIsFocused(false);
+          }}
+          onChange={(e) => {
+            setJoinCode(e.target.value);
+          }}
+        />
+        {/* <Link to="/waiting"> */}
+          <button
+            className="join"
+            onClick={() => {
+              newSocket.emit("request_to_join", { joinCode, username });
+              // setWaiting(true);
+            }}
+          >
+            join
+          </button>
+        {/* </Link> */}
+      </div>
+    </>
+  );
+};
 
-//   const [joinCode, setJoinCode] = useState('');
-
-//   return (
-//     <>
-//       <div className="enter-container">
-//         <h3>enter a game</h3>
-//         <input type="text" inputMode="numeric" pattern="\d*" value={joinCode} onChange={(e) => {
-//           setJoinCode(e.target.value);
-//         }} />
-//         <button onClick={() => {
-//           console.log(joinCode);
-//         }}>join</button>
-//       </div>
-//     </>
-//   );
-// };  
-
-// const HostCard = () => {
-//   //generating and changing game code
-//   let inCode = Math.floor(Math.random() * 10000);
-//   let [code, setCode] = useState(inCode);
-//   const refCode = () => {
-//     setCode(Math.floor(Math.random() * 10000));
-//   };
-
-//   return (
-//     <>
-//       <div className="host-container">
-//         <h3>host a game</h3>
-//         <h2>{code}</h2>
-//         <button
-//           onClick={() => {
-//             refCode();
-            
-//           }}
-//         >
-//           <span className="material-symbols-outlined sync">sync</span>
-//         </button>
-//       </div>
-//     </>
-//   );
-// };
-
-
-// const Lobby = () => {
-
-//   const [username, setUsername] = useState("");
-
-//   return (
-//     <>
-//     <div className="lobby">
-//       <div className="username">
-//         <input type="text" value={username} onChange={(e) => {
-//           setUsername(e.target.value);
-//         }} />
-//         <button onClick={() => {
-//           console.log(username);
-//           document.querySelector(".editSquare").style.color = "#4bb543";
-//         }}>
-//           <span className="material-symbols-outlined editSquare">
-//             check_circle
-//           </span>
-//         </button>
-//       </div>
-//       <div className="code-container">
-//         <EnterCard />
-//         <span className="partition"></span>
-//         <HostCard />
-//       </div>
-//       </div>
-//     </>
-//   );
-// };
 
 
 const Lobby = () => {
-  const [searchText, setSearchText] = useState("");
+  const [username, setUsername] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+  const [joinCode, setJoinCode] = useState("");
+  // const [waiting, setWaiting] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let gameStarted = false;
+  
+    newSocket.on("start_game", ({ players }) => {
+      console.log("Received start_game event. Players:", players);
+      navigate("/game", { state: { players } });
+      newSocket.emit("game_started");
+    });
+  
+    newSocket.on("waiting_for_player", () => {
+      console.log("Received waiting_for_player event");
+      if (!gameStarted) {
+        navigate("/waiting");
+      }
+    });
+  
+    newSocket.on("invalid_code", () => {
+      console.log("Received invalid_code event");
+      alert("The code you entered is invalid.");
+    });
+  
+    return () => {
+      newSocket.off("start_game");
+      newSocket.off("waiting_for_player");
+      newSocket.off("invalid_code");
+    };
+  }, [navigate]);
+  
+  
+  
+  //extract username
   return (
     <>
-    <div className="lobby-container">
-      <div className="heading-container">
-        <img alt="Tic Tac Toe" src="https://img.icons8.com/?size=256&id=y9fWbHrSJDGu&format=png" />
-        <h1>Tic Tac Toe</h1>
-      </div>
+      <div className="lobby">
+        <div className="username">
+          {/* <label>Enter username</label> */}
+          <input
+            type="text"
+            value={username}
+            placeholder={isFocused ? "" : "Enter username"}
+            onFocus={() => {
+              setIsFocused(true);
+            }}
+            onBlur={() => {
+              setIsFocused(false);
+            }}
+            onChange={(e) => {
+              setUsername(e.target.value);
+            }}
+          />
+          <button
+            onClick={() => {
+              Swal.fire({
+                position: "top-end",
+                icon: "success",
+                title: "username saved",
+                showConfirmButton: false,
+                timer: 1200,
+                width: 300,
+                heightAuto: true,
+                backdrop: false,
+                background: '#393f47',
+                iconColor: '#ADFF2F',
+                color: '#fdd842',
+              });
+              // console.log(username);
+            }}
+          >
+            Enter
+          </button>
+        </div>
+        <div className="code-container">
+          <EnterCard
+            setJoinCode={setJoinCode}
+            joinCode={joinCode}
+            // setWaiting={setWaiting}
+            username={username}
+          />
+          <span className="partition"></span>
 
-      <div className="search-container">
-        <label>enter username</label>
-        <input type="text" value={searchText} onChange={(e) => {
-          setSearchText(e.target.value);
-        }}/>
-        <button onClick={() => {
-          console.log(searchText);
-        }}>
-          search for players
-        </button>
-      </div>
+          <p>Your code should be same <br></br> as your playing partner</p>
+        </div>
+        {/* {waiting && <Waiting />} */}
       </div>
     </>
-  )
-}
+  );
+};
+
 export default Lobby;
