@@ -1,0 +1,25 @@
+.result-container {
+    background-color: #222831;
+    margin: 20px auto;
+}
+
+.result-container > h1 {
+    color: yellowgreen;
+}
+.play-again {
+    background-color: yellowgreen;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    font-family: 'Joti One', serif;
+    font-size: 1.2rem;
+    color: #222831;
+    text-align: center;
+    cursor: pointer;
+    box-shadow: 1px 1px 10px #1c1e22;
+}
+
+.play-again:hover {
+    background-color: rgb(105, 146, 24);
+}
